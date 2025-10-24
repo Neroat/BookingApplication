@@ -1,0 +1,129 @@
+﻿<Window x:Class="Booking.Views.RoomDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="방 상세 정보" 
+        Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 헤더 -->
+        <Border Grid.Row="0" Background="#2196F3" Padding="20">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock x:Name="TitleText"
+                          Text="방 1 상세 정보" 
+                          FontSize="28" FontWeight="Bold" 
+                          Foreground="White"/>
+                <TextBlock x:Name="DateText"
+                          Text="2025년 10월 24일"
+                          FontSize="16" Foreground="White" 
+                          Margin="0,5,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <!-- 탭 컨트롤 -->
+        <TabControl Grid.Row="1" Margin="20" Background="Transparent" BorderThickness="0">
+            
+            <!-- 오늘 예약 탭 -->
+            <TabItem Header="오늘 예약" FontSize="16" Padding="20,10">
+                <Border Background="White" CornerRadius="10" Padding="20" Margin="0,10,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" 
+                                  Text="오늘 예약 현황" 
+                                  FontSize="20" FontWeight="Bold"
+                                  Margin="0,0,0,15"/>
+
+                        <DataGrid Grid.Row="1" 
+                                  x:Name="TodayBookingsGrid"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  CanUserAddRows="False"
+                                  GridLinesVisibility="Horizontal"
+                                  HeadersVisibility="Column"
+                                  Background="White"
+                                  BorderThickness="0"
+                                  AlternatingRowBackground="#F9F9F9"
+                                  RowHeight="40"
+                                  FontSize="14">
+                            
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="시작 시간" 
+                                                   Binding="{Binding StartDate, StringFormat='HH:mm'}" 
+                                                   Width="100"/>
+                                <DataGridTextColumn Header="종료 시간" 
+                                                   Binding="{Binding EndDate, StringFormat='HH:mm'}" 
+                                                   Width="100"/>
+                                <DataGridTextColumn Header="고객명" 
+                                                   Binding="{Binding CustomerName}" 
+                                                   Width="150"/>
+                                <DataGridTextColumn Header="연락처" 
+                                                   Binding="{Binding CustomerPhone}" 
+                                                   Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </TabItem>
+
+            <!-- 사용 로그 탭 -->
+            <TabItem Header="사용 로그" FontSize="16" Padding="20,10">
+                <Border Background="White" CornerRadius="10" Padding="20" Margin="0,10,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" 
+                                  Text="이전 사용 기록" 
+                                  FontSize="20" FontWeight="Bold"
+                                  Margin="0,0,0,15"/>
+
+                        <DataGrid Grid.Row="1" 
+                                  x:Name="HistoryGrid"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  CanUserAddRows="False"
+                                  GridLinesVisibility="Horizontal"
+                                  HeadersVisibility="Column"
+                                  Background="White"
+                                  BorderThickness="0"
+                                  AlternatingRowBackground="#F9F9F9"
+                                  RowHeight="40"
+                                  FontSize="14">
+                            
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="날짜" 
+                                                   Binding="{Binding StartDate, StringFormat='yyyy-MM-dd'}" 
+                                                   Width="120"/>
+                                <DataGridTextColumn Header="시작 시간" 
+                                                   Binding="{Binding StartDate, StringFormat='HH:mm'}" 
+                                                   Width="100"/>
+                                <DataGridTextColumn Header="종료 시간" 
+                                                   Binding="{Binding EndDate, StringFormat='HH:mm'}" 
+                                                   Width="100"/>
+                                <DataGridTextColumn Header="고객명" 
+                                                   Binding="{Binding CustomerName}" 
+                                                   Width="150"/>
+                                <DataGridTextColumn Header="연락처" 
+                                                   Binding="{Binding CustomerPhone}" 
+                                                   Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </TabItem>
+            
+        </TabControl>
+    </Grid>
+</Window>

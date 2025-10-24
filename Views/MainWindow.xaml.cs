@@ -28,11 +28,15 @@ namespace Booking.Views
             _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += Timer_Tick;
             _timer.Start();
-            UpdateRoomCard(1);
         }
         private void Timer_Tick(object? sender, EventArgs e)
         {
             CurrentTimeText.Text = DateTime.Now.ToString("yyyy년 MM월 dd일 HH:mm");
+            UpdateRoomCard(1);
+            UpdateRoomCard(2);
+            UpdateRoomCard(3);
+            UpdateRoomCard(4);
+            UpdateRoomCard(5);
         }
         public void UpdateRoomCard(int roomId)
         {
@@ -57,18 +61,21 @@ namespace Booking.Views
                 {
                     lineName.Text = currentBooking.CustomerName;
                     lineTime.Text = $"{currentBooking.StartDate:HH:mm} - {currentBooking.EndDate:HH:mm}";
+                    statusBorder.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#F44336");
                     statusText.Text = "사용 중";
                 }
                 else if(status == Model.RoomStatus.Booking && nextBooking != null)
                 {
                     lineName.Text = nextBooking.CustomerName;
                     lineTime.Text = $"{nextBooking.StartDate:HH:mm} - {nextBooking.EndDate:HH:mm}";
+                    statusBorder.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FF9800");
                     statusText.Text = "예약됨";
                 }
                 else
                 {
                     lineName.Text = "빈 방";
                     lineTime.Text = "";
+                    statusBorder.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#4CAF50");
                     statusText.Text = "예약 없음";
                 }
                 
