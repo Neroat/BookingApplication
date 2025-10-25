@@ -125,5 +125,39 @@ namespace Booking.Services
             }
         }
 
+        public List<BookingModel> GetUpcomingAllBookings()
+        {
+            var bookings = new List<BookingModel>();
+            using (var db = new MySqlConnection(_dbConnection))
+            {
+                db.Open();
+                string query = "SELECT Id, RoomNumber, CustomerName, CustomerPhone, StartDate, EndDate, BookingDate " +
+                    "FROM Bookings " +
+                    "WHERE EndDate >= @Now " +
+                    "ORDER BY RoomNumber, StartDate";
+                using (var command = new MySqlCommand(query, db))
+                {
+                    command.Parameters.AddWithValue("@Now", DateTime.Now);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            bookings.Add(new BookingModel
+                            {
+                                Id = reader.GetInt32("Id"),
+                                RoomNumber = reader.GetInt32("RoomNumber"),
+                                CustomerName = reader.GetString("CustomerName"),
+                                CustomerPhone = reader.GetString("CustomerPhone"),
+                                StartDate = reader.GetDateTime("StartDate"),
+                                EndDate = reader.GetDateTime("EndDate"),
+                                BookingDate = reader.GetDateTime("BookingDate")
+                            });
+                        }
+                    }
+                }
+            }
+            return bookings;
         }
+
+    }
 }

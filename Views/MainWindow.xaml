@@ -142,8 +142,7 @@
                                       Text="{Binding Room2.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
-                                      Foreground="#666"
-                                      Visibility="Collapsed"/>
+                                      Foreground="#666"/>
                         </StackPanel>
 
                         <Border x:Name="Room2StatusBorder"
@@ -237,8 +236,7 @@
                                       Text="{Binding Room4.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
-                                      Foreground="#666"
-                                      Visibility="Collapsed"/>
+                                      Foreground="#666"/>
                         </StackPanel>
 
                         <Border x:Name="Room4StatusBorder"
@@ -307,7 +305,7 @@
                        MouseLeftButtonDown="Summary_Click"
                        Tag="5">
                     <Grid Margin="0">
-                        <TextBlock Text="오늘의 총 예약" FontSize="30"
+                        <TextBlock Text="남은 예약 확인" FontSize="30"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Center"/>

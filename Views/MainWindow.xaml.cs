@@ -49,7 +49,10 @@ namespace Booking.Views
             roomDetailModal.ShowDialog();
         }
         public void Summary_Click(object sender, RoutedEventArgs e)
-        { 
+        {
+            SummaryBooking summary = new SummaryBooking();
+            summary.Owner = this;
+            summary.ShowDialog();
         }
 
     }
