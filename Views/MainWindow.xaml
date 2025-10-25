@@ -24,20 +24,14 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" 
-                        Content="☰ 메뉴" 
-                        FontSize="18" FontWeight="Bold"
-                        Background="#1976D2" Foreground="White"
-                        BorderThickness="0"
-                        Padding="15,8" Margin="0,0,20,0"
-                        Click="MenuButton_Click"/>
-
                 <StackPanel Grid.Column="1" HorizontalAlignment="Center">
                     <TextBlock Text="스크린 골프장 관리 시스템" 
+                              TextAlignment="Center"
                               FontSize="28" FontWeight="Bold" 
                               Foreground="White"/>
                     <TextBlock x:Name="CurrentTimeText" 
                               Text="2025년 10월 24일 14:35:20"
+                              TextAlignment="Center"
                               FontSize="16" Foreground="White" 
                               Margin="0,5,0,0"/>
                 </StackPanel>
@@ -92,23 +86,23 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center">
                             <TextBlock x:Name="Room1CN"
-                                      Text="홍길동님" 
+                                      Text="{Binding Room1.CustomerName}" 
                                       FontSize="30" FontWeight="Bold" 
                                       HorizontalAlignment="Center"
                                       Foreground="#333"
                                       Margin="0,0,0,10"/>
                             <TextBlock x:Name="Room1CT"
-                                      Text="14:00 ~ 15:00" 
+                                      Text="{Binding Room1.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
                                       Foreground="#666"/>
                         </StackPanel>
 
                         <Border x:Name="Room1StatusBorder"
-                                Grid.Row="2" Background="#F44336" 
+                                Grid.Row="2" Background="{Binding Room1.StatusColor}" 
                                CornerRadius="10" Padding="15,10">
                             <TextBlock x:Name="Room1StatusText"
-                                      Text="사용중" 
+                                      Text="{Binding Room1.StatusText}" 
                                       FontSize="22" FontWeight="Bold" 
                                       Foreground="White" 
                                       HorizontalAlignment="Center"/>
@@ -139,13 +133,13 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center">
                             <TextBlock x:Name="Room2CN"
-                                      Text="예약 가능" 
+                                      Text="{Binding Room2.CustomerName}"
                                       FontSize="30" FontWeight="Bold" 
                                       HorizontalAlignment="Center"
                                       Foreground="#333"
                                       Margin="0,0,0,10"/>
                             <TextBlock x:Name="Room2CT"
-                                      Text="" 
+                                      Text="{Binding Room2.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
                                       Foreground="#666"
@@ -153,10 +147,10 @@
                         </StackPanel>
 
                         <Border x:Name="Room2StatusBorder"
-                                Grid.Row="2" Background="#4CAF50" 
+                                Grid.Row="2" Background="{Binding Room2.StatusColor}" 
                                CornerRadius="10" Padding="15,10">
                             <TextBlock x:Name="Room2StatusText"
-                                      Text="예약 없음" 
+                                      Text="{Binding Room2.StatusText}" 
                                       FontSize="22" FontWeight="Bold" 
                                       Foreground="White" 
                                       HorizontalAlignment="Center"/>
@@ -187,23 +181,23 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center">
                             <TextBlock x:Name="Room3CN"
-                                      Text="15:00" 
+                                      Text="{Binding Room3.CustomerName}" 
                                       FontSize="30" FontWeight="Bold" 
                                       HorizontalAlignment="Center"
                                       Foreground="#333"
                                       Margin="0,0,0,10"/>
                             <TextBlock x:Name="Room3CT"
-                                      Text="김철수님" 
+                                      Text="{Binding Room3.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
                                       Foreground="#666"/>
                         </StackPanel>
 
                         <Border x:Name="Room3StatusBorder"
-                                Grid.Row="2" Background="#FF9800" 
+                                Grid.Row="2" Background="{Binding Room3.StatusColor}" 
                                CornerRadius="10" Padding="15,10">
                             <TextBlock x:Name="Room3StatusText"
-                                      Text="예약됨" 
+                                      Text="{Binding Room3.StatusText}" 
                                       FontSize="22" FontWeight="Bold" 
                                       Foreground="White" 
                                       HorizontalAlignment="Center"/>
@@ -234,13 +228,13 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center">
                             <TextBlock x:Name="Room4CN"
-                                      Text="예약 가능" 
+                                      Text="{Binding Room4.CustomerName}" 
                                       FontSize="30" FontWeight="Bold" 
                                       HorizontalAlignment="Center"
                                       Foreground="#333"
                                       Margin="0,0,0,10"/>
                             <TextBlock x:Name="Room4CT"
-                                      Text="" 
+                                      Text="{Binding Room4.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
                                       Foreground="#666"
@@ -248,10 +242,10 @@
                         </StackPanel>
 
                         <Border x:Name="Room4StatusBorder"
-                                Grid.Row="2" Background="#4CAF50" 
+                                Grid.Row="2" Background="{Binding Room4.StatusColor}" 
                                CornerRadius="10" Padding="15,10">
                             <TextBlock x:Name="Room4StatusText"
-                                      Text="예약 없음" 
+                                      Text="{Binding Room4.StatusText}" 
                                       FontSize="22" FontWeight="Bold" 
                                       Foreground="White" 
                                       HorizontalAlignment="Center"/>
@@ -282,23 +276,23 @@
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center">
                             <TextBlock x:Name="Room5CN"
-                                      Text="이영희님" 
+                                      Text="{Binding Room5.CustomerName}" 
                                       FontSize="30" FontWeight="Bold" 
                                       HorizontalAlignment="Center"
                                       Foreground="#333"
                                       Margin="0,0,0,10"/>
                             <TextBlock x:Name="Room5CT"
-                                      Text="16:00 ~ 17:00" 
+                                      Text="{Binding Room5.TimeRange}" 
                                       FontSize="18" 
                                       HorizontalAlignment="Center"
                                       Foreground="#666"/>
                         </StackPanel>
 
                         <Border x:Name="Room5StatusBorder"
-                                Grid.Row="2" Background="#F44336" 
+                                Grid.Row="2" Background="{Binding Room5.StatusColor}" 
                                CornerRadius="10" Padding="15,10">
                             <TextBlock x:Name="Room5StatusText"
-                                      Text="사용중" 
+                                      Text="{Binding Room5.StatusText}" 
                                       FontSize="22" FontWeight="Bold" 
                                       Foreground="White" 
                                       HorizontalAlignment="Center"/>
@@ -306,7 +300,21 @@
                     </Grid>
                 </Border>
 
+                <!--요약 버튼-->
+                <Border Grid.Row="2" Grid.Column="4" 
+                       Background="White" 
+                       CornerRadius="40" 
+                       MouseLeftButtonDown="Summary_Click"
+                       Tag="5">
+                    <Grid Margin="0">
+                        <TextBlock Text="오늘의 총 예약" FontSize="30"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
             </Grid>
+            
         </Grid>
     </Grid>
 </Window>

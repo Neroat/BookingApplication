@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Booking.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Booking.Views
     /// </summary>
     public partial class RoomDetailModal : Window
     {
-        public RoomDetailModal()
+        public RoomDetailModal(int roomId)
         {
             InitializeComponent();
+            DataContext = new ViewModel.RoomDetailViewModel(roomId);
         }
+
     }
 }
