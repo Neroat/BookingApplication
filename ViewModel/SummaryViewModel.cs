@@ -13,22 +13,23 @@ namespace Booking.ViewModel
     {
         private BookingManagerService _service;
         public List<BookingModel> SummaryBookings {  get; set; }
+        public string TotalText { get; set; }
+        public string DateText { get; set; }
+        public string UsingText { get; set; }
+        public string BookingText { get; set; }
         public SummaryViewModel()
         {
             _service = new BookingManagerService();
             SummaryBookings = _service.GetUpcomingAllBookings();
-        }
-        public int[] SummaryList()
-        {
             int[] summaries = new int[3];
             int total = SummaryBookings.Count;
             int using_room = 0;
             int booking_room = 0;
             List<BookingModel> bookingModels = new List<BookingModel>();
-            for(int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 RoomStatus status = _service.GetRoomStatus(i);
-                switch(status)
+                switch (status)
                 {
                     case RoomStatus.Booking: booking_room++; break;
                     case RoomStatus.Using: using_room++; break;
@@ -37,7 +38,10 @@ namespace Booking.ViewModel
                 summaries[1] = using_room;
                 summaries[2] = booking_room;
             }
-            return summaries;
+            DateText = DateTime.Now.ToString("yyyy년 MM월 dd일");
+            TotalText = summaries[0] + "건";
+            UsingText = summaries[1] + "건";
+            BookingText = summaries[2] + "건";
         }
         
     }

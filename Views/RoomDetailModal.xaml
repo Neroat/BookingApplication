@@ -16,12 +16,12 @@
         <Border Grid.Row="0" Background="#2196F3" Padding="20">
             <StackPanel HorizontalAlignment="Center">
                 <TextBlock x:Name="TitleText"
-                          Text="1번 방 상세 정보" 
+                          Text="{Binding TitleText}" 
                           FontSize="28" FontWeight="Bold" 
                           TextAlignment="Center"
                           Foreground="White"/>
                 <TextBlock x:Name="DateText"
-                          Text="2025년 10월 24일"
+                          Text="{Binding DateText}"
                           FontSize="16" Foreground="White" 
                           TextAlignment="Center"
                           Margin="0,5,0,0"/>

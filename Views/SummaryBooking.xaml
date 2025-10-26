@@ -19,7 +19,8 @@
                           FontSize="28" FontWeight="Bold" 
                           Foreground="White"/>
                 <TextBlock x:Name="CurrentDateText" 
-                          Text="2025년 10월 24일"
+                          Text="{Binding DateText}"
+                           HorizontalAlignment="Center"
                           FontSize="16" Foreground="White" 
                           Margin="0,5,0,0"/>
             </StackPanel>
@@ -48,10 +49,11 @@
                         CornerRadius="10" Padding="20"
                         BorderBrush="#E0E0E0" BorderThickness="1">
                     <StackPanel>
-                        <TextBlock Text="총 예약" 
+                        <TextBlock
+                            Text="총 예약" 
                                   FontSize="16" Foreground="#666"/>
-                        <TextBlock x:Name="TotalBookingsText" 
-                                  Text="0건" 
+                        <TextBlock x:Name="TitleText"
+                                  Text="{Binding TotalText}" 
                                   FontSize="32" FontWeight="Bold" 
                                   Foreground="#2196F3"/>
                     </StackPanel>
@@ -64,8 +66,8 @@
                     <StackPanel>
                         <TextBlock Text="사용중" 
                                   FontSize="16" Foreground="#666"/>
-                        <TextBlock x:Name="UsingText" 
-                                  Text="0건" 
+                        <TextBlock x:Name="UsingText"
+                                  Text="{Binding UsingText}" 
                                   FontSize="32" FontWeight="Bold" 
                                   Foreground="#F44336"/>
                     </StackPanel>
@@ -78,8 +80,8 @@
                     <StackPanel>
                         <TextBlock Text="예정" 
                                   FontSize="16" Foreground="#666"/>
-                        <TextBlock x:Name="BookingText" 
-                                  Text="0건" 
+                        <TextBlock x:Name="BookingText"
+                                  Text="{Binding BookingText}" 
                                   FontSize="32" FontWeight="Bold" 
                                   Foreground="#FF9800"/>
                     </StackPanel>

@@ -14,7 +14,6 @@ namespace Booking.ViewModel
         public List<BookingModel> TodayBookings { get; set; }
         public List<BookingModel> HistoryBookings { get; set; }
 
-        // 생성자
         public RoomDetailViewModel(int roomId)
         {
             _service = new BookingManagerService();
